@@ -1,3 +1,6 @@
+## [0.5.1] - 2019-01-18
+* Fixed error throwing
+
 ## [0.5.0] - 2018-10-13
 * Updated cache manager for http 0.12.0
 

@@ -268,8 +268,7 @@ class _CachedNetworkImageState extends State<CachedNetworkImage>
     if (widget.imageUrl != oldWidget.imageUrl ||
         widget.placeholder != widget.placeholder) {
       _imageProvider = new CachedNetworkImageProvider(widget.imageUrl,
-          headers: widget.httpHeaders, 
-          errorListener: _imageLoadingFailed);
+          headers: widget.httpHeaders, errorListener: _imageLoadingFailed);
 
       _resolveImage();
     }
@@ -473,7 +472,7 @@ class CachedNetworkImageProvider
     var file = await cacheManager.getFile(url, headers: headers);
     if (file == null) {
       if (errorListener != null) errorListener();
-      throw new Exception("Couldn't download or retreive file.");
+      return Future<ui.Codec>.error("Couldn't download or retreive file.");
     }
     return await _loadAsyncFromFile(key, file);
   }
